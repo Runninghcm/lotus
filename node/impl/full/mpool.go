@@ -3,6 +3,7 @@ package full
 import (
 	"context"
 	"encoding/json"
+	"github.com/filecoin-project/go-state-types/abi"
 
 	"github.com/filecoin-project/go-address"
 	"github.com/ipfs/go-cid"
@@ -171,6 +172,26 @@ again:
 	}
 	return m, err
 }
+
+func (a *MpoolAPI) 	MpoolReplaceMessage(ctx context.Context, from address.Address, nonce uint64, gaslimit int64, gasfeecap abi.TokenAmount, gaspremium abi.TokenAmount)(*types.SignedMessage, error) {
+
+	pending, mpts := a.Mpool.Pending()
+
+	var found *types.SignedMessage
+	for _, p := range pending {
+		if p.Message.From == from && p.Message.Nonce == nonce {
+			found = p
+			break
+		}
+	}
+
+	if found == nil {
+		return nil, xerrors.Errorf("mpool replace: ")
+	}
+
+	return nil, nil
+}
+
 
 func (a *MpoolAPI) MpoolGetNonce(ctx context.Context, addr address.Address) (uint64, error) {
 	return a.Mpool.GetNonce(addr)
