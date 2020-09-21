@@ -126,7 +126,7 @@ var importBenchCmd = &cli.Command{
 		bdgOpt.Options.Truncate = true
 		bdgOpt.Options.DetectConflicts = false
 
-		cache := 64
+		cache := 512
 		bds, err := pebbleds.NewDatastore(tdir, &pebble.Options{
 			// Pebble has a single combined cache area and the write
 			// buffers are taken from this too. Assign all available
@@ -142,7 +142,7 @@ var importBenchCmd = &cli.Command{
 			// Per-level options. Options for at least one level must be specified. The
 			// options for the last level are used for all subsequent levels.
 			Levels: []pebble.LevelOptions{
-				{TargetFileSize: 16 * 1024 * 1024, FilterPolicy: bloom.FilterPolicy(10)},
+				{TargetFileSize: 2 * 1024 * 1024, FilterPolicy: bloom.FilterPolicy(10)},
 			},
 			Logger: log,
 		})

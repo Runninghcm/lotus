@@ -58,7 +58,7 @@ require (
 	github.com/ipfs/go-ds-badger2 v0.1.1-0.20200708190120-187fc06f714e
 	github.com/ipfs/go-ds-leveldb v0.4.2
 	github.com/ipfs/go-ds-measure v0.1.0
-	github.com/ipfs/go-ds-pebble v0.0.2-0.20200921203347-fdcf8bc98ade
+	github.com/ipfs/go-ds-pebble v0.0.2-0.20200921211847-f1ffb3128b61
 	github.com/ipfs/go-filestore v1.0.0
 	github.com/ipfs/go-fs-lock v0.0.6
 	github.com/ipfs/go-graphsync v0.1.2
@@ -118,7 +118,6 @@ require (
 	github.com/whyrusleeping/pubsub v0.0.0-20131020042734-02de8aa2db3d
 	github.com/xorcare/golden v0.6.1-0.20191112154924-b87f686d7542
 	go.opencensus.io v0.22.4
-	go.uber.org/dig v1.10.0 // indirect
 	go.uber.org/fx v1.9.0
 	go.uber.org/multierr v1.5.0
 	go.uber.org/zap v1.15.0
