@@ -150,6 +150,7 @@ var importBenchCmd = &cli.Command{
 				{TargetFileSize: 2 * 1024 * 1024, FilterPolicy: bloom.FilterPolicy(10)},
 				{TargetFileSize: 2 * 1024 * 1024, FilterPolicy: bloom.FilterPolicy(10)},
 			},
+			Logger: log,
 		})
 		if err != nil {
 			return err
