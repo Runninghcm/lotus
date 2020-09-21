@@ -73,7 +73,10 @@ type validatedRequest struct {
 const (
 	Headers = 1 << iota
 	Messages
-	Validate
+
+	// these don't go to the wire, it's a local api option
+	WireOptions = 1<<16 - 1
+	Validate    = 1 << 16
 )
 
 // Decompressed options into separate struct members for easy access

@@ -369,6 +369,14 @@ func (c *client) sendRequestToPeer(ctx context.Context, peer peer.ID, req *Reque
 			}
 		}
 	}()
+
+	// clear non-wire options
+	allOptions := req.Options
+	req.Options &= WireOptions
+	defer func() {
+		req.Options = allOptions
+	}()
+
 	// -- TRACE --
 
 	supported, err := c.host.Peerstore().SupportsProtocols(peer, BlockSyncProtocolID, ChainExchangeProtocolID)
