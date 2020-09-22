@@ -57,8 +57,9 @@ type Request struct {
 	// Request options, see `Options` type for more details. Compressed
 	// in a single `uint64` to save space.
 	Options uint64
-	// Request tipsets for validation
-	TipSets []*types.TipSet
+
+	// Request tipsets for validation -- local use, does not go over the wire
+	tipsets []*types.TipSet
 }
 
 // `Request` processed and validated to query the tipsets needed.

@@ -221,7 +221,7 @@ func (c *client) processResponse(req *Request, res *Response) (*validatedRespons
 			chain := make([]*BSTipSet, 0, resLength)
 			for i, resChain := range res.Chain {
 				next := &BSTipSet{
-					Blocks:   req.TipSets[i].Blocks(),
+					Blocks:   req.tipsets[i].Blocks(),
 					Messages: resChain.Messages,
 				}
 				chain = append(chain, next)
@@ -336,7 +336,7 @@ func (c *client) GetChainMessages(ctx context.Context, tipsets []*types.TipSet) 
 		Head:    head.Cids(),
 		Length:  length,
 		Options: Messages | Validate,
-		TipSets: tipsets,
+		tipsets: tipsets,
 	}
 
 	validRes, err := c.doRequest(ctx, req, nil)
